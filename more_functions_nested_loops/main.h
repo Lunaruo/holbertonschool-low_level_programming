@@ -3,6 +3,7 @@
 
 int _isupper(int c);
 int _isdigit(int c);
+mul(int a, int b);
 
 #endif
 
