@@ -3,7 +3,7 @@ int main() {
 	int choice;
 	float num1, num2;
 
-while (choice != 0){
+do{
 
 	printf("\n=== Simple Calculator ===\n");
 	printf("1. Add\n");
@@ -19,16 +19,6 @@ while (choice != 0){
            printf("Enter second number: ");
            scanf("%f", &num2);
 		}
-
-	if (scanf("%d", &choice) != 1   ) {
-	printf("Erreur: entrée invalide\n");
-	}
-	if (scanf("%f", &num1) != 1 ) {
-	printf("Erreur: entrée invalide\n");
-	}
-	if (scanf("%f", &num2) != 1 ) {
-	printf("Erreur: entrée invalide\n");
-	}
        switch (choice) {
            case 1:
                printf("Result: %.2f\n", num1 + num2);
@@ -53,6 +43,6 @@ while (choice != 0){
            default:
                printf("Invalid choice! Please try again.\n");
        }
-   }
+   }while (choice != 0);
    return 0;
 }
