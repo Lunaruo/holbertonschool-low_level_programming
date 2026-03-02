@@ -2,7 +2,9 @@
 int main() {
 	int choice;
 	float num1, num2;
-do {
+
+while (choice != 0){
+
 	printf("\n=== Simple Calculator ===\n");
 	printf("1. Add\n");
 	printf("2. Subtract\n");
@@ -16,7 +18,17 @@ do {
            scanf("%f", &num1);
            printf("Enter second number: ");
            scanf("%f", &num2);
-   }
+		}
+
+	if (scanf("%d", &choice) != 1   ) {
+	printf("Erreur: entrée invalide\n");
+	}
+	if (scanf("%f", &num1) != 1 ) {
+	printf("Erreur: entrée invalide\n");
+	}
+	if (scanf("%f", &num2) != 1 ) {
+	printf("Erreur: entrée invalide\n");
+	}
        switch (choice) {
            case 1:
                printf("Result: %.2f\n", num1 + num2);
@@ -28,10 +40,12 @@ do {
                printf("Result: %.2f\n", num1 * num2);
                break;
            case 4:
-               if (num2 != 0)
+               if (num2 != 0) {
                    printf("Result: %.2f\n", num1 / num2);
-               else
+			}
+               else {
                    printf("Error: Division by zero!\n");
+			}
                break;
            case 0:
                printf("Bye!\n");
@@ -39,6 +53,6 @@ do {
            default:
                printf("Invalid choice! Please try again.\n");
        }
-   } while (choice != 0);
+   }
    return 0;
 }
