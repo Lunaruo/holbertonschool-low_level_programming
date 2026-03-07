@@ -4,31 +4,24 @@
  * _atoi - convert a string to an integer
  * @s: string to convert
  *
- * Return: the integer converted from the string
+ * Return: the integer converted
  */
 int _atoi(char *s)
 {
-	int i = 0;
 	int sign = 1;
-	int num = 0;
-	int started = 0;
+	unsigned int num = 0;
 
-	while (s[i] != '\0')
+	while (*s)
 	{
-		if (s[i] == '-')
-		{
+		if (*s == '-')
 			sign *= -1;
-		}
-		else if (s[i] >= '0' && s[i] <= '9')
+		if (*s >= '0' && *s <= '9')
 		{
-			started = 1;
-			num = num * 10 + (s[i] - '0');
+			num = num * 10 + (*s - '0');
+			if (*(s + 1) < '0' || *(s + 1) > '9')
+				break;
 		}
-		else if (started)
-		{
-			break;
-		}
-		i++;
+		s++;
 	}
 
 	return (num * sign);
