@@ -9,7 +9,7 @@
  */
 int main(int argc, char *argv[])
 {
-    (void)argv; /* unused parameter */
-    printf("%d\n", argc - 1);
-    return (0);
+	(void)argv; /* unused parameter */
+	printf("%d\n", argc - 1);
+	return (0);
 }
