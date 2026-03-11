@@ -10,7 +10,7 @@
  * Return: pointer to the array, or NULL if it fails
  */
 
-char *create_array(unsigned int size , char c)
+char *create_array(unsigned int size, char c)
 {
 	char *array;
 	unsigned int i;
@@ -20,7 +20,7 @@ char *create_array(unsigned int size , char c)
 			return (NULL);
 		}
 
-		array = malloc(sizeof(char)*size);
+		array = malloc(sizeof(char) * size);
 
 		if (array == NULL)
 		{
@@ -29,7 +29,7 @@ char *create_array(unsigned int size , char c)
 
 	for (i = 0 ; i < size ; i++)
 	{
-		array[i]=c;
+		array[i] = c;
 	}
 	return (array);
 
