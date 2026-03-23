@@ -2,44 +2,72 @@
 #include <stdio.h>
 
 /**
+ * print_char - prints a char
+ */
+void print_char(va_list args, char *sep)
+{
+	printf("%s%c", sep, va_arg(args, int));
+}
+
+/**
+ * print_int - prints an int
+ */
+void print_int(va_list args, char *sep)
+{
+	printf("%s%d", sep, va_arg(args, int));
+}
+
+/**
+ * print_float - prints a float
+ */
+void print_float(va_list args, char *sep)
+{
+	printf("%s%f", sep, va_arg(args, double));
+}
+
+/**
+ * print_string - prints a string
+ */
+void print_string(va_list args, char *sep)
+{
+	char *str = va_arg(args, char *);
+
+	if (str == NULL)
+		str = "(nil)";
+	printf("%s%s", sep, str);
+}
+
+/**
  * print_all - prints anything
- * @format: list of types of arguments
- *
- * Return: nothing
  */
 void print_all(const char * const format, ...)
 {
-	va_list args;
-	unsigned int i = 0;
+	int i = 0, j;
 	char *sep = "";
-	char *str;
+	va_list args;
+
+	void (*f[])(va_list, char *) = {
+		print_char,
+		print_int,
+		print_float,
+		print_string
+	};
+
+	char types[] = {'c', 'i', 'f', 's'};
 
 	va_start(args, format);
 
 	while (format && format[i])
 	{
-		if (format[i] == 'c')
+		j = 0;
+		while (j < 4)
 		{
-			printf("%s%c", sep, va_arg(args, int));
-			sep = ", ";
-		}
-		if (format[i] == 'i')
-		{
-			printf("%s%d", sep, va_arg(args, int));
-			sep = ", ";
-		}
-		if (format[i] == 'f')
-		{
-			printf("%s%f", sep, va_arg(args, double));
-			sep = ", ";
-		}
-		if (format[i] == 's')
-		{
-			str = va_arg(args, char *);
-			if (str == NULL)
-				str = "(nil)";
-			printf("%s%s", sep, str);
-			sep = ", ";
+			if (format[i] == types[j])
+			{
+				f[j](args, sep);
+				sep = ", ";
+			}
+			j++;
 		}
 		i++;
 	}
