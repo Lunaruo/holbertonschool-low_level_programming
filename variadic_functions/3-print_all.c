@@ -3,6 +3,8 @@
 
 /**
  * print_char - prints a char
+ * @args: list of arguments
+ * @sep: separator string
  */
 void print_char(va_list args, char *sep)
 {
@@ -10,7 +12,9 @@ void print_char(va_list args, char *sep)
 }
 
 /**
- * print_int - prints an int
+ * print_int - prints an integer
+ * @args: list of arguments
+ * @sep: separator string
  */
 void print_int(va_list args, char *sep)
 {
@@ -19,6 +23,8 @@ void print_int(va_list args, char *sep)
 
 /**
  * print_float - prints a float
+ * @args: list of arguments
+ * @sep: separator string
  */
 void print_float(va_list args, char *sep)
 {
@@ -27,6 +33,8 @@ void print_float(va_list args, char *sep)
 
 /**
  * print_string - prints a string
+ * @args: list of arguments
+ * @sep: separator string
  */
 void print_string(va_list args, char *sep)
 {
@@ -39,6 +47,9 @@ void print_string(va_list args, char *sep)
 
 /**
  * print_all - prints anything
+ * @format: list of types of arguments
+ *
+ * Return: nothing
  */
 void print_all(const char * const format, ...)
 {
