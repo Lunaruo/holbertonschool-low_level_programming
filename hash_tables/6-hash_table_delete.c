@@ -5,7 +5,8 @@
  * hash_table_delete - deletes a hash table
  * @ht: pointer to the hash table
  *
- * Description: frees all nodes and the array, then frees the hash table itself.
+ * Description: frees all nodes and the array, then frees
+ * the hash table itself.
  */
 void hash_table_delete(hash_table_t *ht)
 {
